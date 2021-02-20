@@ -6,17 +6,17 @@ class Summarizer:
     '''
     
     
-    def __init__(self, text_file):
+    def __init__(self, text):
         '''
         This is the init constructor function that will initialize the input text data to that particular
         instance of the class.
         
         args:
         
-        text_file = the input string data.
+        text = the input string data.
         '''
         
-        self.text_file = text_file
+        self.text = text
         
         
     def punctuation_removal(self, sentences):
@@ -30,7 +30,7 @@ class Summarizer:
         
         
         
-#     def stopword_removal(self, text_file):
+#     def stopword_removal(self, text):
 #         '''
 #         Function to remove stopwords from the input raw data.
 #         '''
@@ -38,14 +38,14 @@ class Summarizer:
 #         print('able to access stopword_removal function and run it')
         
         
-    def tokenize_sentences(self, text_file):
+    def tokenize_sentences(self, text):
         '''
         Function to tokenize the given paragraph to sentences.
         '''
         
         from nltk.tokenize import sent_tokenize
         sentences = []
-        for s in text_file:
+        for s in text:
             sentences.append(sent_tokenize(s))
 
         sentences = [y for x in sentences for y in x]
@@ -75,11 +75,11 @@ class Summarizer:
          print('able to access show_summary function and run it')
         
         
-    def run_summarizer(self, text_file):
-        self.tokenize_sentences(text_file)
-        self.punctuation_removal(text_file)
-        self.extract_feature(text_file)
-        self.cosine_similarity(text_file)
+    def run_summarizer(self, text):
+        self.tokenize_sentences(text)
+        self.punctuation_removal(text)
+        self.extract_feature(text)
+        self.cosine_similarity(text)
         #self.page_ranking(similarity_matrix)
         #self.show_summary(ranked_sentences)
         print('All functions run finished!')
